@@ -74,25 +74,68 @@ main{margin:4px 10px;padding:12px 8px 18px;border-radius:26px 26px 14px 14px;min
 #mic{width:72px;height:72px}#mic svg.i{width:26px;height:26px}
 #more{max-height:34vh;overflow:auto}#more .ctl{padding:2px 8px}
 details{margin:0 12px 4px}
+[hidden]{display:none!important}
+:root{--page:#fbf4e0;--page2:#eadfbf;--desk:#2a1d15}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#0f342c;--page2:#0a2620;--desk:#020c09}}
+body{background:radial-gradient(ellipse at 50% 20%,var(--desk),#000 160%);padding:8px 4px 6px}
+#book{flex:1;display:flex;min-height:0;position:relative;margin:0 34px 0 4px}
+#sheet{flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;position:relative;background-color:var(--page);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .4 0 0 0 0 .2 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");border-radius:6px 14px 14px 6px;padding:10px 10px 4px 14px;box-shadow:inset 14px 0 18px -12px #0006,inset -3px 0 6px -3px #0003,2px 2px 0 var(--page2),4px 4px 0 var(--page),6px 6px 0 var(--page2),0 18px 34px #000a}
+.frame{flex:1;min-height:0;display:flex;flex-direction:column;border:1.5px solid var(--gold);outline:1px solid var(--gold);outline-offset:-6px;border-radius:6px;padding:10px 10px 2px}
+#cn{display:flex;flex-direction:column;align-items:center;padding:4px 8px;margin:2px 10px 6px;border:1.5px solid var(--gold);border-radius:8px;background:linear-gradient(var(--okbg),transparent);position:relative;color:inherit}
+#cn:before,#cn:after{content:"";position:absolute;top:50%;width:9px;height:9px;margin-top:-5px;border:1.5px solid var(--gold);transform:rotate(45deg);background:var(--page)}
+#cn:before{left:-6px}#cn:after{right:-6px}
+.ba{font:700 24px 'Amiri Quran',serif;color:var(--gold);direction:rtl;line-height:1.5}.be{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+#views{flex:1;min-height:0;display:flex;flex-direction:column}
+#vread,#vtr,#pn,#xp{flex:1;min-height:0}#vread{display:flex;flex-direction:column}
+#vtr,#pn,#xp{overflow:auto}
+#sheet main{background:none;box-shadow:none;border-radius:0;margin:0;padding:4px;min-height:0;flex:1}
+#sheet .panel{border:0;background:none;max-height:none;margin:0;padding:4px}
+#pn input{width:100%;padding:9px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;margin-bottom:6px}
+#lst .t{flex-direction:row;background:none}
+.tv{padding:10px 4px;border-bottom:1px dashed var(--line);cursor:pointer}
+.ta{font:26px/2 'Amiri Quran',serif;direction:rtl;text-align:right}
+.tp,.tm{font:15px/1.7 'Hind Siliguri',sans-serif}.tp{color:var(--acc)}
+.rib{position:absolute;top:-3px;left:30px;z-index:5;width:26px;height:56px;border:0;background:none;padding:0;cursor:pointer;color:#9a8f73;filter:drop-shadow(0 2px 2px #0005);transition:transform .2s,color .2s}
+.rib:hover{transform:translateY(3px)}.rib.on{color:#c0392b}.sr{position:absolute;left:-9999px}
+.tabs{position:absolute;right:-32px;top:70px;display:flex;flex-direction:column;gap:6px;z-index:3}
+.tab{width:36px;padding:6px 2px;border:0;border-radius:0 10px 10px 0;background:var(--c);color:#fff;font:600 8px Inter,sans-serif;display:flex;flex-direction:column;align-items:center;gap:2px;box-shadow:3px 2px 5px #0006;cursor:pointer;transition:transform .15s,filter .15s;filter:brightness(.85);transform:translateX(-6px)}
+.tab svg{width:18px;height:18px}.tab.on{transform:translateX(2px);filter:none}
+.foot{padding:0 4px}#vp{display:none!important}
+#more{background:var(--page2);border-top:1.5px solid var(--gold);margin:4px 2px 0;border-radius:10px 10px 0 0;max-height:34vh;overflow:auto}
+.dock{padding:4px 4px 2px!important;border-top:1px solid var(--line);margin-top:4px;background:none}
+.dock .t{border:0;background:none;color:var(--ink)}.dock .t svg{color:var(--gold)}
+#sheet.out-next{transform-origin:left center;animation:outN .26s ease-in forwards}
+#sheet.in-next{transform-origin:right center;animation:inN .32s ease-out}
+#sheet.out-prev{transform-origin:right center;animation:outP .26s ease-in forwards}
+#sheet.in-prev{transform-origin:left center;animation:inP .32s ease-out}
+@keyframes outN{to{transform:perspective(1500px) rotateY(-95deg);filter:brightness(.7)}}
+@keyframes inN{from{transform:perspective(1500px) rotateY(90deg);filter:brightness(.7)}to{transform:none}}
+@keyframes outP{to{transform:perspective(1500px) rotateY(95deg);filter:brightness(.7)}}
+@keyframes inP{from{transform:perspective(1500px) rotateY(-90deg);filter:brightness(.7)}to{transform:none}}
 </style></head>
 <body>
-<header class="top"><svg class="logo" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M32 6a18 18 0 1 0 0 36 14 14 0 0 1 0-36z"/><g transform="translate(37 24)" fill="currentColor" stroke="none"><rect x="-4" y="-4" width="8" height="8"/><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)"/></g></svg><h1>Tilawat</h1><span class="grow"></span><button class="pill" id="pick"><svg class="i" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg>Surahs</button><button class="pill" id="bkB"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg>Saved</button><button class="pill" id="rvB"><svg class="i" viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 14l2 2 4-4"/></svg>Review</button></header>
+<div id="book"><div id="sheet" class="sheet">
+<button class="rib" id="mk" aria-label="Bookmark this verse"><svg viewBox="0 0 26 56" fill="currentColor"><path d="M0 0h26v56l-13-11L0 56z"/></svg><span id="mkl" class="sr">Mark</span></button>
+<nav class="tabs"><button class="tab" id="pick" style="--c:#0e6b57"><svg class="i" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg><span>Index</span></button><button class="tab" id="mn" style="--c:#a8741a"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h9M8.5 5c0 5-2 8-5 10M5 9c1 3 3 5 6 6M13 20l4-10 4 10M14.5 17h5"/></svg><span>Meaning</span></button><button class="tab" id="bkB" style="--c:#b03a2e"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span>Saved</span></button><button class="tab" id="rvB" style="--c:#2c6e9e"><svg class="i" viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 14l2 2 4-4"/></svg><span>Review</span></button></nav>
+<div class="frame">
 <div id="cn"></div>
-<div id="pn" hidden style="margin:0 10px 6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px"><input id="q" placeholder="Search by name or number" style="width:100%;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit"><div id="lst" style="max-height:34vh;overflow:auto;margin-top:6px"></div></div>
+<div id="views">
+<div id="vread"><main id="main"><div id="txt"></div></main></div>
+<div id="vtr" hidden></div>
+<div id="pn" hidden><input id="q" placeholder="Search surah by name or number"><div id="lst"></div></div>
 <div id="xp" hidden class="panel"></div>
-<div class="statline"><span><b id="sOk">0</b> Correct</span><span><b id="sSkip">0</b> Missed</span><span><b id="sStreak">0</b> Istiqamah</span><span><b id="sPct">0%</b> Done</span></div>
-<div class="bar"><i id="pb"></i></div>
-<div class="wird" id="wird" title="Tap to change daily goal"></div>
-<main id="main"><div id="txt"></div></main>
-<div class="liveRow"><div class="meter" id="meter"></div><div class="live" id="live"></div></div>
-<div class="msg" id="msg"></div>
-<div id="vp" hidden></div>
-<div class="ctl main"><button class="t" id="pv"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Prev</button><button class="t" id="pp"><svg class="i" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play</button><button id="mic" aria-label="Microphone"><svg class="star" viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" rx="6"/><rect x="15" y="15" width="70" height="70" rx="6" transform="rotate(45 50 50)"/></svg><span id="micI"><svg class="i" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg></span></button><button class="t" id="nx"><svg class="i" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>Next</button><button class="t" id="moreB"><svg class="i" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>More</button></div>
-<div id="more" hidden>
-<div class="ctl"><button class="t" id="mk"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span id="mkl">Mark</span></button><button class="t" id="reset"><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>Restart</button><button class="t" id="hideB"><svg class="i" viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M4 4l16 16"/></svg>Memorize</button><button class="t" id="auto" title="Replays the correct word when you skip or misread one"><svg class="i" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></svg>Auto-fix</button><button class="t" id="pw"><svg class="i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>Word</button><button class="t" id="pa"><svg class="i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg>Verse</button></div>
-<div class="ctl" style="padding-top:0"><button class="t" id="sp"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 18 0M12 12l5-4"/></svg><span id="spl">1×</span></button><button class="t" id="pr"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Pronounce</button><button class="t" id="mn"><svg class="i" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg>Meaning</button><button class="t" id="fm">A−</button><button class="t" id="fp">A+</button></div>
-<details id="help" open><summary>How it works</summary><ol style="margin:6px 0;padding-left:20px;line-height:1.7"><li>Use Chrome, Edge or Safari on an <b>https</b> link. Press the star button and tap <b>Allow</b>.</li><li>Read slowly, one word at a time. Correct words turn green and the gold box moves on. The small line above shows what the mic hears.</li><li><b>Auto-fix</b> (off by default): if you skip or misread a word, it plays the correct word and takes you back to repeat it.</li><li><b>Memorize</b> blurs unread words. Tap any word to hear it.</li></ol></details>
 </div>
+<div class="foot"><div class="statline"><span><b id="sOk">0</b> Correct</span><span><b id="sSkip">0</b> Missed</span><span><b id="sStreak">0</b> Istiqamah</span><span><b id="sPct">0%</b> Done</span></div><div class="bar"><i id="pb"></i></div><div class="wird" id="wird" title="Tap to change daily goal"></div></div>
+<div class="liveRow"><div class="meter" id="meter"></div><div class="live" id="live"></div></div>
+<div class="msg" id="msg"></div><div id="vp" hidden></div>
+</div>
+<div id="more" hidden>
+<div class="ctl"><button class="t" id="reset"><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>Restart</button><button class="t" id="hideB"><svg class="i" viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M4 4l16 16"/></svg>Memorize</button><button class="t" id="auto" title="Replays the correct word when you skip or misread one"><svg class="i" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></svg>Auto-fix</button><button class="t" id="pw"><svg class="i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>Word</button><button class="t" id="pa"><svg class="i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg>Verse</button></div>
+<div class="ctl" style="padding-top:0"><button class="t" id="sp"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 18 0M12 12l5-4"/></svg><span id="spl">1×</span></button><button class="t" id="pr"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Pronounce</button><button class="t" id="fm">A−</button><button class="t" id="fp">A+</button></div>
+<details id="help" open><summary>How it works</summary><ol style="margin:6px 0;padding-left:20px;line-height:1.7"><li>Use Chrome, Edge or Safari on an <b>https</b> link. Press the star button and tap <b>Allow</b>.</li><li>Read slowly, one word at a time. Correct words turn green and the gold box moves on.</li><li>Swipe the page left or right (or use ← →) to turn to the next or previous surah. Use the side tabs for the Index, Meaning, Saved and Review pages.</li><li><b>Auto-fix</b> (off by default): if you skip or misread a word, it plays the correct word and takes you back to repeat it.</li><li>The ribbon at the top saves your place. <b>Memorize</b> blurs unread words. Tap any word to hear it.</li></ol></details>
+</div>
+<div class="dock ctl main"><button class="t" id="pv"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Prev</button><button class="t" id="pp"><svg class="i" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play</button><button id="mic" aria-label="Microphone"><svg class="star" viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" rx="6"/><rect x="15" y="15" width="70" height="70" rx="6" transform="rotate(45 50 50)"/></svg><span id="micI"><svg class="i" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg></span></button><button class="t" id="nx"><svg class="i" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>Next</button><button class="t" id="moreB"><svg class="i" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>More</button></div>
+</div></div>
 <script>
 const $=id=>document.getElementById(id);
 const I={mic:'<svg class="i" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg>',stop:'<svg class="i" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/></svg>'};
@@ -113,13 +156,13 @@ const KEY='tilawat.v1';
 function getP(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
 function sv(i){if(!W.length)return;const p=getP();p.pos=p.pos||{};p.pos[cur]=i<W.length?i:0;p.last=cur;try{localStorage.setItem(KEY,JSON.stringify(p))}catch(e){}}
 function fillList(){const q=$('q').value.trim().toLowerCase(),nq=norm(q),L=$('lst');L.innerHTML='';
-LIST.filter(x=>!q||String(x.number)===q||(x.englishName||'').toLowerCase().includes(q)||(nq&&norm(x.name||'').includes(nq))).forEach(x=>{const b=document.createElement('button');b.className='t';b.style.cssText='display:block;width:100%;text-align:left;margin-bottom:4px';b.textContent=x.number+'. '+x.englishName+(x.name?' · '+x.name:'')+' · '+x.numberOfAyahs+' verses';b.onclick=()=>{stop();$('pn').hidden=true;load(x.number)};L.appendChild(b)})}
-$('pick').onclick=()=>{const h=$('pn').hidden=!$('pn').hidden;if(!h)$('q').focus()};
+LIST.filter(x=>!q||String(x.number)===q||(x.englishName||'').toLowerCase().includes(q)||(nq&&norm(x.name||'').includes(nq))).forEach(x=>{const b=document.createElement('button');b.className='t';b.style.cssText='display:block;width:100%;text-align:left;margin-bottom:4px';b.textContent=x.number+'. '+x.englishName+(x.name?' · '+x.name:'')+' · '+x.numberOfAyahs+' verses';b.onclick=()=>{stop();turn(()=>{setView('read');load(x.number)},'next')};L.appendChild(b)})}
+$('pick').onclick=()=>view(VW==='idx'?'read':'idx');
 $('q').oninput=fillList;
 function boot(){fillList();const p=getP();load(p.last||1)}
 function load(n){build(n,Q[n-1][2],false)}
 function build(n,verses,fresh){stopPlay();cur=n;VS=verses;W=[];const T=$('txt');T.innerHTML='';
-const it=LIST.find(x=>x.number===n)||{};$('cn').textContent=n+'. '+(it.englishName||'')+' '+(it.name||'');
+const it=LIST.find(x=>x.number===n)||{};$('cn').innerHTML='<span class="ba">سورة '+esc(it.name||'')+'</span><span class="be">'+n+' · '+esc(it.englishName||'')+' · '+(it.numberOfAyahs||'')+' verses</span>';
 if(n!=1&&n!=9){const b=document.createElement('div');b.style.cssText='font-size:.7em;color:var(--mut)';b.textContent='بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ';T.appendChild(b)}
 verses.forEach((v,vi)=>{let pc=0;v.split(/\s+/).filter(Boolean).forEach(w=>{if(!norm(w)){const x=document.createElement('span');x.className='m';x.textContent=w;T.appendChild(x);return}
 const e=document.createElement('span');e.className='w';e.textContent=w;const idx=W.length;e.onclick=()=>{SR?playWord(idx):jump(idx)};T.appendChild(e);W.push({e,n:norm(w),a:vi+1,p:++pc})});
@@ -184,7 +227,7 @@ return r}
 function begin(){if(rec){rec.onend=rec.onresult=rec.onerror=null;try{rec.abort()}catch(e){}}
 rec=mk();lastStart=Date.now();try{rec.start()}catch(e){}}
 function start(){if(!SR){say('Speech recognition is not available in this browser. Use Chrome, Edge or Safari. You can tap words to advance meanwhile.');return}
-stopPlay();if(done)build(cur,VS,true);
+stopPlay();if(VW!=='read')setView('read');if(done)build(cur,VS,true);
 listening=true;quick=0;$('mic').classList.add('rec');$('micI').innerHTML=I.stop;
 say(window.isSecureContext?'Starting microphone… allow access if asked.':'The microphone needs an https link. Host this page on GitHub Pages.');
 begin()}
@@ -192,13 +235,13 @@ function stop(){stopAudio();playing=false;listening=false;if(rec){rec.onend=rec.
 $('mic').classList.remove('rec');$('micI').innerHTML=I.mic;snd=false}
 for(let k=0;k<10;k++)$('meter').appendChild(document.createElement('i'));
 setInterval(()=>{[...$('meter').children].forEach(b=>b.style.height=(listening&&snd?4+Math.random()*30:4)+'px')},100);
-$('pv').onclick=()=>{stop();const k=LIST.findIndex(x=>x.number===cur);load(LIST[(k-1+LIST.length)%LIST.length].number)};
+$('pv').onclick=()=>go(-1);
 $('auto').onclick=e=>{autoOn=!autoOn;e.currentTarget.classList.toggle('on',autoOn)};
 $('pw').onclick=()=>playWord(Math.min(live.i,W.length-1));
 $('pa').onclick=()=>playAyah(Math.min(live.i,W.length-1));
 $('mic').onclick=()=>listening?stop():start();
 $('reset').onclick=()=>{stop();build(cur,VS,true)};
-$('nx').onclick=()=>{stop();const k=LIST.findIndex(x=>x.number===cur);load(LIST[(k+1)%LIST.length].number)};
+$('nx').onclick=()=>go(1);
 $('hideB').onclick=e=>{const h=$('main').classList.toggle('hide');e.currentTarget.classList.toggle('on',h)};
 let fs=30;const setF=d=>{fs=Math.min(60,Math.max(22,fs+d));document.documentElement.style.setProperty('--fs',fs+'px')};
 $('fm').onclick=()=>setF(-4);$('fp').onclick=()=>setF(4);
@@ -238,8 +281,8 @@ let lastV=-1,PRON=false,MEAN=false;
 function updVP(a){const vp=$('vp');if(!PRON&&!MEAN){vp.hidden=true;return}const w=a?{a}:W[Math.min(live.i,W.length-1)];if(!w)return;const t=VS[w.a-1];if(!t)return;
 vp.hidden=false;vp.innerHTML='<b>Verse '+w.a+'</b>'+(PRON?'<div class="bnp">'+esc(vpron(t,true))+' <small>(approximate)</small></div>':'')+(MEAN?'<div class="bnm">'+esc(Q[cur-1][3][w.a-1]||'')+'</div>':'')}
 function vchg(){const w=W[Math.min(live.i,W.length-1)];if(!w||w.a===lastV)return;lastV=w.a;bmUI();updVP()}
-$('pr').onclick=e=>{PRON=!PRON;e.currentTarget.classList.toggle('on',PRON);updVP()};
-$('mn').onclick=e=>{MEAN=!MEAN;e.currentTarget.classList.toggle('on',MEAN);updVP()};
+$('pr').onclick=e=>{PRON=!PRON;e.currentTarget.classList.toggle('on',PRON);if(VW==='tr')fillTr();updVP()};
+$('mn').onclick=()=>view(VW==='tr'?'read':'tr');
 /* ---- daily wird / istiqamah ---- */
 const GOALS=[50,100,200,500],dk=d=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
 function wirdAdd(n){if(n<=0)return;const D=J('tilawat.d',{goal:100,days:{}}),k=dk(new Date());D.days[k]=(D.days[k]||0)+n;Sv('tilawat.d',D);wirdShow()}
@@ -249,14 +292,14 @@ $('wird').onclick=()=>{const D=J('tilawat.d',{goal:100,days:{}});D.goal=GOALS[(G
 /* ---- bookmarks, review, juz ---- */
 const JUZ=[[1,1],[2,142],[2,253],[3,93],[4,24],[4,148],[5,82],[6,111],[7,88],[8,41],[9,93],[11,6],[12,53],[15,1],[17,1],[18,75],[21,1],[23,1],[25,21],[27,56],[29,46],[33,31],[36,28],[39,32],[41,47],[46,1],[51,31],[58,1],[67,1],[78,1]];
 const wordsBefore=(s,a)=>Q[s-1][2].slice(0,a-1).reduce((x,v)=>x+v.split(/\s+/).filter(Boolean).length,0);
-function goTo(s,a){stop();stopPlay();const p=getP();p.pos=p.pos||{};p.pos[s]=a>1?wordsBefore(s,a):0;p.last=s;try{localStorage.setItem(KEY,JSON.stringify(p))}catch(e){}$('pn').hidden=true;$('xp').hidden=true;if(s===cur&&W.length)build(s,VS,false);else load(s)}
+function goTo(s,a){stop();stopPlay();const p=getP();p.pos=p.pos||{};p.pos[s]=a>1?wordsBefore(s,a):0;p.last=s;try{localStorage.setItem(KEY,JSON.stringify(p))}catch(e){}turn(()=>{setView('read');if(s===cur&&W.length)build(s,VS,false);else load(s)},'next')}
 function bmUI(){const w=W[Math.min(live.i,W.length-1)],on=!!(w&&J('tilawat.b',[]).some(x=>x.s===cur&&x.a===w.a));$('mk').classList.toggle('on',on);$('mkl').textContent=on?'Unmark':'Mark'}
-function bmToggle(){const w=W[Math.min(live.i,W.length-1)];if(!w)return;const B=J('tilawat.b',[]),k=B.findIndex(x=>x.s===cur&&x.a===w.a);if(k>=0)B.splice(k,1);else B.push({s:cur,a:w.a});Sv('tilawat.b',B);say(k>=0?'Bookmark removed.':'Bookmarked '+Q[cur-1][1]+' '+cur+':'+w.a);bmUI();if(!$('xp').hidden&&XK==='bk')panel('bk',1)}
+function bmToggle(){const w=W[Math.min(live.i,W.length-1)];if(!w)return;const B=J('tilawat.b',[]),k=B.findIndex(x=>x.s===cur&&x.a===w.a);if(k>=0)B.splice(k,1);else B.push({s:cur,a:w.a});Sv('tilawat.b',B);say(k>=0?'Bookmark removed.':'Bookmarked '+Q[cur-1][1]+' '+cur+':'+w.a);bmUI();if(VW==='xp'&&XK==='bk')panel('bk',1)}
 let XK='';
-function panel(k,keep){const x=$('xp');if(!keep&&!x.hidden&&XK===k){x.hidden=true;return}XK=k;x.hidden=false;let h='';
+function panel(k,keep){const x=$('xp');if(!keep&&VW==='xp'&&XK===k){view('read');return}XK=k;let h='';
 if(k==='bk'){const B=J('tilawat.b',[]);h=B.length?B.map((b,i)=>'<div class="row"><button data-s="'+b.s+'" data-a="'+b.a+'">'+esc(Q[b.s-1][1])+' · '+b.s+':'+b.a+'</button><button data-x="'+i+'" aria-label="Remove bookmark"><svg class="i" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg>Remove</button></div>').join('')+'<button data-clr="1" class="clr">Clear all bookmarks</button>':'No bookmarks yet. Press Mark to save your place.'}
 else{const M=Object.values(J('tilawat.m',{})).sort((p,q)=>q.c-p.c).slice(0,12);h=M.length?M.map(m=>'<div class="row"><button data-s="'+m.s+'" data-a="'+m.a+'"><span class="ar">'+esc(m.t)+'</span> '+esc(Q[m.s-1][1])+' · '+m.s+':'+m.a+' · '+m.c+'×</button></div>').join(''):'No difficult words yet. Words you miss will be listed here.'}
-x.innerHTML=h}
+x.innerHTML=h;if(VW!=='xp')view('xp');else setView('xp')}
 $('xp').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.clr){Sv('tilawat.b',[]);panel('bk',1);bmUI();return}if(b.dataset.x!==undefined){const B=J('tilawat.b',[]);B.splice(+b.dataset.x,1);Sv('tilawat.b',B);panel('bk',1);bmUI()}else goTo(+b.dataset.s,+b.dataset.a)};
 $('bkB').onclick=()=>panel('bk');$('rvB').onclick=()=>panel('rv');$('mk').onclick=bmToggle;
 function miss(k){const w=W[k],M=J('tilawat.m',{}),key=cur+':'+w.a+':'+w.p;M[key]=M[key]||{t:w.e.textContent,s:cur,a:w.a,c:0};M[key].c++;Sv('tilawat.m',M)}
@@ -273,9 +316,24 @@ const au=PL.au;au.src='https://cdn.islamic.network/quran/audio/128/ar.alafasy/'+
 clearInterval(PL.tm);PL.tm=setInterval(()=>{const d=au.duration;if(!d||!isFinite(d))return;const f=au.currentTime/d*tot;let acc=0,idx=ws[ws.length-1];for(const k of ws){acc+=W[k].n.length+2;if(f<acc){idx=k;break}}hl(idx)},70);
 au.onended=()=>{PL.a++;playVerse()};au.onerror=()=>{stopPlay();say('Audio could not be loaded. Check your internet connection.')};
 hl(ws[0]);const pr=au.play();if(pr&&pr.catch)pr.catch(()=>{stopPlay();say('Tap Play again to allow audio.')})}
-function playFrom(i){stop();stopPlay();stopAudio();PL.on=true;PL.au=new Audio();PL.a=W[Math.min(i,W.length-1)].a;$('pp').innerHTML=IC.pause+'Pause';$('pp').classList.add('on');say('Playing the recitation. Tap Pause to stop.');playVerse()}
+function playFrom(i){if(VW!=='read')setView('read');stop();stopPlay();stopAudio();PL.on=true;PL.au=new Audio();PL.a=W[Math.min(i,W.length-1)].a;$('pp').innerHTML=IC.pause+'Pause';$('pp').classList.add('on');say('Playing the recitation. Tap Pause to stop.');playVerse()}
 $('pp').onclick=()=>PL.on?stopPlay():playFrom(live.i>=W.length?0:live.i);
 $('sp').onclick=()=>{const S3=[0.75,1,1.25];PL.sp=S3[(S3.indexOf(PL.sp)+1)%3];$('spl').textContent=PL.sp+'×';if(PL.au)PL.au.playbackRate=PL.sp};
+/* ---- book: page turns, views, swipe ---- */
+const ANIM=!!window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches,ORD={read:0,tr:1,idx:2,xp:3};let VW='read',turning=false;
+function turn(fn,dir){const sh=$('sheet');if(!ANIM||turning){fn();return}turning=true;sh.classList.add('out-'+dir);setTimeout(()=>{sh.classList.remove('out-'+dir);fn();sh.classList.add('in-'+dir);setTimeout(()=>{sh.classList.remove('in-'+dir);turning=false},320)},260)}
+function fillTr(){const q=Q[cur-1];$('vtr').innerHTML=q[2].map((v,k)=>'<div class="tv" data-a="'+(k+1)+'"><div class="ta">'+esc(v)+' <span class="m">'+ar(k+1)+'</span></div>'+(PRON?'<div class="tp">'+esc(vpron(v,true))+'</div>':'')+'<div class="tm">'+esc(q[3][k]||'')+'</div></div>').join('')}
+function setView(v){VW=v;$('vread').hidden=v!=='read';$('vtr').hidden=v!=='tr';$('pn').hidden=v!=='idx';$('xp').hidden=v!=='xp';
+document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',(b.id==='pick'&&v==='idx')||(b.id==='mn'&&v==='tr')||(b.id==='bkB'&&v==='xp'&&XK==='bk')||(b.id==='rvB'&&v==='xp'&&XK==='rv')));
+if(v==='tr')fillTr();if(v==='idx')fillList();if(v==='read'&&W[live.i])vis(W[live.i].e)}
+function view(v){if(v===VW)return;turn(()=>setView(v),ORD[v]>ORD[VW]?'next':'prev')}
+function go(d){stop();stopPlay();const k=LIST.findIndex(x=>x.number===cur),n=LIST[(k+d+LIST.length)%LIST.length].number;turn(()=>{setView('read');load(n)},d>0?'next':'prev')}
+$('vtr').onclick=e=>{const t=e.target.closest('.tv');if(t)goTo(cur,+t.dataset.a)};
+let tx=0,ty=0;const sh=$('sheet');
+sh.addEventListener('touchstart',e=>{const t=e.touches&&e.touches[0];if(t){tx=t.clientX;ty=t.clientY}},{passive:true});
+sh.addEventListener('touchend',e=>{const t=e.changedTouches&&e.changedTouches[0];if(!t||VW!=='read')return;const dx=t.clientX-tx,dy=t.clientY-ty;if(Math.abs(dx)>80&&Math.abs(dy)<50)go(dx<0?1:-1)},{passive:true});
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;if(e.key==='ArrowLeft')go(1);else if(e.key==='ArrowRight')go(-1)});
+setView('read');
 wirdShow();$('moreB').onclick=()=>{$('more').hidden=!$('more').hidden};$('more').hidden=true;
 boot();
 </script>
