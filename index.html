@@ -58,31 +58,51 @@ button.t.on{background:var(--acc);color:var(--onacc);border-color:var(--acc)}
 #vp{margin:0 16px 4px;padding:8px 12px;background:var(--card);border:1px solid var(--line);border-radius:12px;max-height:20vh;overflow:auto;font-size:13px;color:var(--mut)}
 #vp .bnp{font-family:'Hind Siliguri',sans-serif;font-size:16px;color:var(--ink);margin:4px 0}#vp .bnm{font-family:'Hind Siliguri',sans-serif}
 .w[data-pl]{background:var(--curbg);color:var(--cur);box-shadow:0 0 0 2px var(--gold)}
+header.top{display:flex;align-items:center;gap:6px;padding:6px 10px 2px;flex-wrap:wrap}
+header.top svg.logo{width:28px;height:28px;color:var(--gold)}header.top svg.i{width:16px;height:16px}
+header.top h1{font-size:22px;margin:0}.grow{flex:1}
+.pill{padding:6px 10px;font-size:12.5px;gap:5px}
+#cn{text-align:center;font-size:12px;color:var(--mut);padding:0 10px}
+.statline{display:flex;justify-content:center;gap:14px;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);padding:2px 10px}.statline b{font-size:14px;color:var(--ink);letter-spacing:0}
+.bar{margin:4px 14px}.wird{font-size:11px;padding:0 10px 2px}
+main{margin:4px 10px;padding:12px 8px 18px;border-radius:26px 26px 14px 14px;min-height:42vh}
+#txt{font-size:var(--fs,30px);line-height:2.2}
+.liveRow{display:flex;align-items:center;gap:8px;padding:2px 14px;min-height:26px}.liveRow .live{flex:1;padding:0;min-height:0;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meter{width:36px;height:22px}
+.msg{padding:0 12px;min-height:16px;font-size:12px}
+.ctl.main{padding:2px 8px 6px;gap:6px;flex-wrap:nowrap}.ctl.main .t{min-width:52px;padding:6px 8px}
+#mic{width:72px;height:72px}#mic svg.i{width:26px;height:26px}
+#more{max-height:34vh;overflow:auto}#more .ctl{padding:2px 8px}
+details{margin:0 12px 4px}
 </style></head>
 <body>
-<header><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M32 6a18 18 0 1 0 0 36 14 14 0 0 1 0-36z"/><g transform="translate(37 24)" fill="currentColor" stroke="none"><rect x="-4" y="-4" width="8" height="8"/><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)"/></g></svg><h1>Tilawat</h1></header>
-<div class="sub">Recite from the Mushaf</div><div class="orn"></div>
-<div class="bar0"><button class="pill" id="pick"><svg class="i" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg>Surahs</button><button class="pill" id="bkB"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg>Saved</button><button class="pill" id="rvB"><svg class="i" viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 14l2 2 4-4"/></svg>Review</button><span id="cn" style="width:100%;text-align:center"></span></div>
+<header class="top"><svg class="logo" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M32 6a18 18 0 1 0 0 36 14 14 0 0 1 0-36z"/><g transform="translate(37 24)" fill="currentColor" stroke="none"><rect x="-4" y="-4" width="8" height="8"/><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)"/></g></svg><h1>Tilawat</h1><span class="grow"></span><button class="pill" id="pick"><svg class="i" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg>Surahs</button><button class="pill" id="bkB"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg>Saved</button><button class="pill" id="rvB"><svg class="i" viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 14l2 2 4-4"/></svg>Review</button></header>
+<div id="cn"></div>
+<div id="pn" hidden style="margin:0 10px 6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px"><input id="q" placeholder="Search by name or number" style="width:100%;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit"><div id="lst" style="max-height:34vh;overflow:auto;margin-top:6px"></div></div>
 <div id="xp" hidden class="panel"></div>
-<div id="pn" hidden style="margin:0 14px 6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px"><input id="q" placeholder="Search by name or number" style="width:100%;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit"><div id="lst" style="max-height:34vh;overflow:auto;margin-top:6px"></div></div>
-<div class="stats"><div class="st"><b id="sOk">0</b>Correct</div><div class="st"><b id="sSkip">0</b>Missed</div><div class="st"><b id="sStreak">0</b>Istiqamah</div><div class="st"><b id="sPct">0%</b>Done</div></div>
+<div class="statline"><span><b id="sOk">0</b> Correct</span><span><b id="sSkip">0</b> Missed</span><span><b id="sStreak">0</b> Istiqamah</span><span><b id="sPct">0%</b> Done</span></div>
 <div class="bar"><i id="pb"></i></div>
 <div class="wird" id="wird" title="Tap to change daily goal"></div>
 <main id="main"><div id="txt"></div></main>
-<div class="live" id="live"></div>
+<div class="liveRow"><div class="meter" id="meter"></div><div class="live" id="live"></div></div>
 <div class="msg" id="msg"></div>
 <div id="vp" hidden></div>
-<details id="help"><summary>How to recite with the microphone</summary><ol style="margin:6px 0;padding-left:20px;line-height:1.7"><li>Use Chrome, Edge or Safari. The link must be <b>https</b>.</li><li>Press the star button and tap <b>Allow</b> when asked.</li><li>When it says “Listening”, read the verse slowly and clearly, one word at a time.</li><li>Correct words turn green and the gold box moves on. If a word is missed, the correct one is played so you can repeat it.</li><li>Tap any word to hear it.</li></ol></details>
-<div class="ctl"><button class="t" id="pv"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Prev</button><div class="meter" id="meter"></div><button id="mic" aria-label="Microphone"><svg class="star" viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" rx="6"/><rect x="15" y="15" width="70" height="70" rx="6" transform="rotate(45 50 50)"/></svg><span id="micI"><svg class="i" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg></span></button><button class="t" id="nx"><svg class="i" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>Next</button></div>
-<div class="ctl" style="padding-top:0"><button class="t" id="reset"><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>Restart</button><button class="t" id="hideB"><svg class="i" viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M4 4l16 16"/></svg>Memorize</button><button class="t on" id="auto"><svg class="i" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></svg>Auto-fix</button><button class="t" id="pw"><svg class="i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>Word</button><button class="t" id="pa"><svg class="i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg>Verse</button><button class="t" id="fm">A−</button><button class="t" id="fp">A+</button></div>
-<div class="ctl" style="padding-top:0"><button class="t" id="pp"><svg class="i" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play</button><button class="t" id="sp"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 18 0M12 12l5-4"/></svg><span id="spl">1×</span></button><button class="t" id="mk"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span id="mkl">Mark</span></button><button class="t" id="pr"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Pronounce</button><button class="t" id="mn"><svg class="i" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg>Meaning</button></div>
+<div class="ctl main"><button class="t" id="pv"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Prev</button><button class="t" id="pp"><svg class="i" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Play</button><button id="mic" aria-label="Microphone"><svg class="star" viewBox="0 0 100 100"><rect x="15" y="15" width="70" height="70" rx="6"/><rect x="15" y="15" width="70" height="70" rx="6" transform="rotate(45 50 50)"/></svg><span id="micI"><svg class="i" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg></span></button><button class="t" id="nx"><svg class="i" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>Next</button><button class="t" id="moreB"><svg class="i" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>More</button></div>
+<div id="more" hidden>
+<div class="ctl"><button class="t" id="mk"><svg class="i" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span id="mkl">Mark</span></button><button class="t" id="reset"><svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>Restart</button><button class="t" id="hideB"><svg class="i" viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M4 4l16 16"/></svg>Memorize</button><button class="t" id="auto" title="Replays the correct word when you skip or misread one"><svg class="i" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></svg>Auto-fix</button><button class="t" id="pw"><svg class="i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>Word</button><button class="t" id="pa"><svg class="i" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg>Verse</button></div>
+<div class="ctl" style="padding-top:0"><button class="t" id="sp"><svg class="i" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 18 0M12 12l5-4"/></svg><span id="spl">1×</span></button><button class="t" id="pr"><svg class="i" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Pronounce</button><button class="t" id="mn"><svg class="i" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></svg>Meaning</button><button class="t" id="fm">A−</button><button class="t" id="fp">A+</button></div>
+<details id="help" open><summary>How it works</summary><ol style="margin:6px 0;padding-left:20px;line-height:1.7"><li>Use Chrome, Edge or Safari on an <b>https</b> link. Press the star button and tap <b>Allow</b>.</li><li>Read slowly, one word at a time. Correct words turn green and the gold box moves on. The small line above shows what the mic hears.</li><li><b>Auto-fix</b> (off by default): if you skip or misread a word, it plays the correct word and takes you back to repeat it.</li><li><b>Memorize</b> blurs unread words. Tap any word to hear it.</li></ol></details>
+</div>
 <script>
 const $=id=>document.getElementById(id);
 const I={mic:'<svg class="i" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/></svg>',stop:'<svg class="i" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/></svg>'};
 const norm=s=>s.replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/ء/g,'').replace(/[^\u0621-\u064A\s]/g,'');
 function lev(a,b){const m=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let p=m[0];m[0]=i;for(let j=1;j<=b.length;j++){const t=m[j];m[j]=Math.min(m[j]+1,m[j-1]+1,p+(a[i-1]===b[j-1]?0:1));p=t}}return m[b.length]}
 const skel=x=>x.replace(/ا/g,'');
-const sim=(a,b)=>{const f=1-lev(a,b)/Math.max(a.length,b.length,1);if(a.length<4||b.length<4)return f;const A=skel(a),B=skel(b);return Math.max(f,1-lev(A,B)/Math.max(A.length,B.length,1))};
+const PHM={'ث':'س','ص':'س','ذ':'ز','ظ':'ز','ض':'ز','ط':'ت','ق':'ك','ح':'ه','ع':'ا','غ':'خ'};
+const ph=x=>x.replace(/[ثصذظضطقحعغ]/g,c=>PHM[c]);
+const rl=(a,b)=>1-lev(a,b)/Math.max(a.length,b.length,1);
+const sim=(a,b)=>{let f=rl(a,b);const pa=ph(a),pb=ph(b);if(pa===pb&&a.length>=2)return Math.max(f,0.9);if(a.length<4||b.length<4)return f;return Math.max(f,rl(skel(a),skel(b)),rl(pa,pb),rl(skel(pa),skel(pb)))};
 const thr=w=>w.length<=3?0.66:0.72;
 let cur=0,W=[],base=0,baseSt=[],live={i:0,st:[]},listening=false,rec=null,stream=null,ac=null,raf=0,streak=0,done=false;
 const bn=n=>String(n);
@@ -131,7 +151,7 @@ if(fs>=0&&fs===pendSkip)pendCnt++;else{pendSkip=fs;pendCnt=fs>=0?1:0}
 if(autoOn&&fs>=0&&pendCnt>=2&&r.i-fs>=3&&!playing&&Date.now()-lastAuto>3000){lastAuto=Date.now();say('Listen to the correct word, then repeat it.');miss(fs);redo(fs);playWord(fs)}}
 function finish(ok,sk){const pct=Math.round(ok/W.length*100);say('Masha’Allah! Surah complete: '+ok+' correct, '+sk+' missed ('+pct+'%)');burst();stop()}
 function burst(){const st='<svg viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14"/><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"/></svg>';for(let n=0;n<28;n++){const e=document.createElement('span');e.className='fx';e.innerHTML=st;e.style.left='50%';e.style.top='55%';e.style.setProperty('--x',(Math.random()*500-250)+'px');e.style.setProperty('--y',(Math.random()*-500-50)+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),1700)}}
-let au=null,playing=false,autoOn=true,lastAuto=0;
+let au=null,playing=false,autoOn=false,lastAuto=0;
 const p3=x=>String(x).padStart(3,'0');
 const CUM=[0];Q.forEach((q,k)=>CUM.push(CUM[k]+q[2].length));
 function stopAudio(){if(au){au.onended=au.onerror=null;au.pause();au=null}try{speechSynthesis.cancel()}catch(_){}}
@@ -180,7 +200,7 @@ $('mic').onclick=()=>listening?stop():start();
 $('reset').onclick=()=>{stop();build(cur,VS,true)};
 $('nx').onclick=()=>{stop();const k=LIST.findIndex(x=>x.number===cur);load(LIST[(k+1)%LIST.length].number)};
 $('hideB').onclick=e=>{const h=$('main').classList.toggle('hide');e.currentTarget.classList.toggle('on',h)};
-let fs=34;const setF=d=>{fs=Math.min(60,Math.max(22,fs+d));document.documentElement.style.setProperty('--fs',fs+'px')};
+let fs=30;const setF=d=>{fs=Math.min(60,Math.max(22,fs+d));document.documentElement.style.setProperty('--fs',fs+'px')};
 $('fm').onclick=()=>setF(-4);$('fp').onclick=()=>setF(4);
 const IC={play:'<svg class="i" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>',pause:'<svg class="i" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></svg>'};
 const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -256,7 +276,7 @@ hl(ws[0]);const pr=au.play();if(pr&&pr.catch)pr.catch(()=>{stopPlay();say('Tap P
 function playFrom(i){stop();stopPlay();stopAudio();PL.on=true;PL.au=new Audio();PL.a=W[Math.min(i,W.length-1)].a;$('pp').innerHTML=IC.pause+'Pause';$('pp').classList.add('on');say('Playing the recitation. Tap Pause to stop.');playVerse()}
 $('pp').onclick=()=>PL.on?stopPlay():playFrom(live.i>=W.length?0:live.i);
 $('sp').onclick=()=>{const S3=[0.75,1,1.25];PL.sp=S3[(S3.indexOf(PL.sp)+1)%3];$('spl').textContent=PL.sp+'×';if(PL.au)PL.au.playbackRate=PL.sp};
-wirdShow();
+wirdShow();$('moreB').onclick=()=>{$('more').hidden=!$('more').hidden};$('more').hidden=true;
 boot();
 </script>
 </body></html>
